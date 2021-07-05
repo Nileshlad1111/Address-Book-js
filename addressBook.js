@@ -75,7 +75,7 @@ class Contact{
         let phoneRegex = RegExp("^[0-9-]{1,}[ ][1-9]{1}[0-9]{9}$");
         if(phoneRegex.test(phone))
             this._phone = phone;
-        else   "Invalid Phone: "+phone;
+        else  "Invalid Phone: "+phone;
     }
     get email(){
         return this._email;
@@ -94,7 +94,7 @@ class Contact{
 }
 
 //pass by object value
-let contact = new Contact("Nilesh","Lad","krantinagar,kundal","Sangli","MH","416309","8888310299","ladnilesh@gamil.com");
+let contact = new Contact("Nilesh","Lad","krantinagar,kundal","Sangli","MH","416309","8888310299","ladnilesh@gemail.com");
 console.log(contact.toString());
 
 
@@ -120,7 +120,7 @@ console.log(contact.toString());
     }
     //incorrect phone 
     try{
-        let contact2 = new Contact("Nilesh","Lad","krantinagar,kundal","Sangli","MH","416309","+-5kn8888358296299","ladnilesh@gemail.com");
+        let contact2 = new Contact("Nilesh","Lad","krantinagar,kundal","Sangli","MH","416309","88883299","ladnilesh@gemail.com");
     }catch(e){
         console.error(e);
     }
@@ -136,7 +136,15 @@ console.log(contact.toString());
     }catch(e){
         console.error(e);
     }
+
+
+   
 }
 
-
-
+//new address book 
+let addressBookArray = new Array();
+addressBookArray.push(contact);
+addressBookArray.push(new Contact("Mark","Zuckerberg","Street 191","NewYork","New York","732106","11 6182755450","mark@email.com"));
+addressBookArray.push(new Contact("Bill","Gates","Street 250","Medina","Washington","723091","11 6817263541","bill@email.com"));
+addressBookArray.push(new Contact("Jeff","Bezos","Street 200","CityABC","Washington","772109","11 6385755850","jeff@email.com"));
+console.log(addressBookArray.toString());
