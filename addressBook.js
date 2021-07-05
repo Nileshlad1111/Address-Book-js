@@ -253,3 +253,27 @@ function countPersonsByCityOrState(name,type){
 }
 console.log("\n Number of contacts in NewYork City: "+countPersonsByCityOrState("NewYork","City"));
 console.log("Number of contacts in New York State: "+countPersonsByCityOrState("New York","State"));
+
+
+//UC 11 Sort Entries alphabetically
+function sortAddressBookBy(type){
+    switch(type){
+    case "name":
+        return addressBookArray.slice().sort();
+    case "city":
+        return addressBookArray.slice().sort((a,b)=>(a.city).localeCompare(b.city));
+    case "state":
+        return addressBookArray.slice().sort((a,b)=>(a.state).localeCompare(b.state));
+    case "zip":
+        return addressBookArray.slice().sort((a,b)=>(a.zip).localeCompare(b.zip));
+    }
+
+
+    
+}
+
+let sortedByName = sortAddressBookBy("name");
+    console.log("\nSorted address book by name:" +sortedByName.toString());
+    console.log("Sorted address book by city: "+sortAddressBookBy("city"));
+    console.log("Sorted address book by state: "+sortAddressBookBy("state"));
+    console.log("Sorted address book by zip: "+sortAddressBookBy("zip"));
