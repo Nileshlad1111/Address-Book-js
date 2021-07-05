@@ -95,7 +95,6 @@ class Contact{
 
 
 
-
 //Failure cases:
 {
     //incorrect first name:
@@ -163,13 +162,13 @@ console.log(addressBookArray.toString());
 
 //UC4 USING SEPARATE FUNCTION
 {
-    function findAndEditContact(contact){
+    function editContact(contact){
         if (contact.firstName == "Jeff" && contact.lastName == "Bezos"){
             contact.phone = "11 6123456788";
             return contact;
         }
     }
-    let contactToEdit = addressBookArray.find(findAndEditContact);
+    let contactToEdit = addressBookArray.find(editContact);
     console.log("\nUsing separate function: "+addressBookArray);
 } 
 
@@ -212,3 +211,14 @@ function addContact(newContact){
 //Trying to add duplicate contact:
 addContact(new Contact("Mark","Zuckerberg","Street 191","NewYork","New York","732106","11 6182755450","mark@email.com"));
 console.log(addressBookArray.toString());
+
+
+//UC 8 Search Person In a City Or State
+function searchPersonInCity(firstName,city){
+    return addressBookArray.find(contact=>contact.firstName==firstName&&contact.city==city);
+}
+function searchPersonInState(firstName,state){
+    return addressBookArray.find(contact=>contact.firstName==firstName&&contact.state==state);
+}
+console.log("Search Person in a city : "+searchPersonInCity("Mark","NewYork"));
+console.log("Search Person in a state : "+searchPersonInState("Mark","New York")); 
