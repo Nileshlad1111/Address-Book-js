@@ -108,7 +108,7 @@ console.log(contact.toString());
     }
     //incorrect address: 
     try{
-        let contact2 = new Contact("Nilesh","Lad","undal12.2","Sangli","MH","416309","8888310299","ladnilesh@gemail.com");
+        let contact2 = new Contact("Nilesh","Lad","2.2","Sangli","MH","416309","8888310299","ladnilesh@gemail.com");
     }catch(e){
         console.error(e);
     }
@@ -120,7 +120,7 @@ console.log(contact.toString());
     }
     //incorrect phone 
     try{
-        let contact2 = new Contact("Nilesh","Lad","krantinagar,kundal","Sangli","MH","416309","88883299","ladnilesh@gemail.com");
+        let contact2 = new Contact("Nilesh","Lad","krantinagar,kundal","Sangli","MH","416309","888831029","ladnilesh@gemail.com");
     }catch(e){
         console.error(e);
     }
@@ -148,3 +148,27 @@ addressBookArray.push(new Contact("Mark","Zuckerberg","Street 191","NewYork","Ne
 addressBookArray.push(new Contact("Bill","Gates","Street 250","Medina","Washington","723091","11 6817263541","bill@email.com"));
 addressBookArray.push(new Contact("Jeff","Bezos","Street 200","CityABC","Washington","772109","11 6385755850","jeff@email.com"));
 console.log(addressBookArray.toString());
+
+
+//UC4 USING ARROW FUNCTION 
+{
+    let contactToEdit = addressBookArray.find(contact=>contact.firstName=="Jeff"&&contact.lastName=="Bezos");
+    if(contactToEdit!=undefined){
+        contactToEdit.phone = "11 6123456789";
+        console.log("\nUsing arrow => function "+addressBookArray);
+    }
+    else 
+        console.log("\nContact not found");
+}
+
+//UC4 USING SEPARATE FUNCTION
+{
+    function findAndEditContact(contact){
+        if (contact.firstName == "Jeff" && contact.lastName == "Bezos"){
+            contact.phone = "11 6123456788";
+            return contact;
+        }
+    }
+    let contactToEdit = addressBookArray.find(findAndEditContact);
+    console.log("\nUsing separate function: "+addressBookArray);
+} 
