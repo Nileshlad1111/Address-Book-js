@@ -146,6 +146,8 @@ console.log(contact.toString());
 addContact(new Contact("Mark","Zuckerberg","Street 191","NewYork","New York","732106","11 6182755450","mark@email.com"));
 addContact(new Contact("Bill","Gates","Street 250","Medina","Washington","723091","11 6817263541","bill@email.com"));
 addContact(new Contact("Jeff","Bezos","Street 200","CityABC","Washington","772109","11 6385755850","jeff@email.com"));
+addContact(new Contact("Mark","Gates","Street 199","NewYork","New York","722106","11 6182755777","markgates@email.com"));
+addContact(new Contact("Bill","Bezos","Street 218","NewYork","New York","992106","11 6182755000","markgates@email.com"));
 console.log(addressBookArray.toString());
 
 
@@ -222,3 +224,18 @@ function searchPersonInState(firstName,state){
 }
 console.log("Search Person in a city : "+searchPersonInCity("Mark","NewYork"));
 console.log("Search Person in a state : "+searchPersonInState("Mark","New York")); 
+
+
+//UC9 View Persons By city or state
+function viewPersonsByCityOrState(name,type){
+    console.log("\nContacts in "+name+" "+type);
+    if(type=="City")
+        addressBookArray.filter(contact=>contact.city==name).forEach(contact=>process.stdout.write(contact.toString()));
+    else if(type=="State")
+        addressBookArray.filter(contact=>contact.state==name).forEach(contact=>process.stdout.write(contact.toString()));
+    else 
+        console.log("Invalid choice");
+}
+viewPersonsByCityOrState("NewYork","City");
+viewPersonsByCityOrState("New York","State");
+
