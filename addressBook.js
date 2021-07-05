@@ -317,13 +317,33 @@ switch(number){
         break;
     case 7:
         let sortedByName = sortAddressBookBy("name");
-        console.log("\nSorted address book by name:" +sortedByName.toString());
+        let number1 = Number(prompt("Enter the choices to address book sort in \n1.name,\n2.city,\n3.state,\n4.zip,\nwhich one sort: "));
+
+        switch(number1)
+        {
+            case 1:
+                console.log("\nSorted address book by name:" +sortedByName.toString());
+                break;
+            case 2:
+                 console.log("Sorted address book by city: "+sortAddressBookBy("city"));
+                 break;
+            case 3:
+                console.log("Sorted address book by state: "+sortAddressBookBy("state"));
+                break;
+            case 4:
+                 console.log("Sorted address book by zip: "+sortAddressBookBy("zip"));
+                 break;
+                 default:
+        console.log("Invalid");
+
+        }
+        // console.log("\nSorted address book by name:" +sortedByName.toString());
         // console.log("Sorted address book by city: "+sortAddressBookBy("city"));
         // console.log("Sorted address book by state: "+sortAddressBookBy("state"));
         // console.log("Sorted address book by zip: "+sortAddressBookBy("zip"));
         break;   
         case 8:
-            console.log("delete the jeff person ")
+        console.log("delete the jeff person ")
         console.log("\nAddress Book Array After Deleting Contact: "+addressBookArray)
         break;       
  
