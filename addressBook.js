@@ -93,9 +93,7 @@ class Contact{
     }
 }
 
-//pass by object value
-let contact = new Contact("Nilesh","Lad","krantinagar,kundal","Sangli","MH","416309","8888310299","ladnilesh@gemail.com");
-console.log(contact.toString());
+
 
 
 //Failure cases:
@@ -143,10 +141,12 @@ console.log(contact.toString());
 
 //new address book 
 let addressBookArray = new Array();
-addressBookArray.push(contact);
-addressBookArray.push(new Contact("Mark","Zuckerberg","Street 191","NewYork","New York","732106","11 6182755450","mark@email.com"));
-addressBookArray.push(new Contact("Bill","Gates","Street 250","Medina","Washington","723091","11 6817263541","bill@email.com"));
-addressBookArray.push(new Contact("Jeff","Bezos","Street 200","CityABC","Washington","772109","11 6385755850","jeff@email.com"));
+//pass by object value
+let contact = new Contact("Nilesh","Lad","krantinagar,kundal","Sangli","MH","416309","8888310299","ladnilesh@gemail.com");
+console.log(contact.toString());
+addContact(new Contact("Mark","Zuckerberg","Street 191","NewYork","New York","732106","11 6182755450","mark@email.com"));
+addContact(new Contact("Bill","Gates","Street 250","Medina","Washington","723091","11 6817263541","bill@email.com"));
+addContact(new Contact("Jeff","Bezos","Street 200","CityABC","Washington","772109","11 6385755850","jeff@email.com"));
 console.log(addressBookArray.toString());
 
 
@@ -196,3 +196,19 @@ console.log(addressBookArray.toString());
 {
     console.log("Total Contacts With reduce using arrow => function: "+addressBookArray.reduce((totalContacts)=>++totalContacts,0));
 }
+
+
+//UC7 Add contact if not already present:
+function addContact(newContact){
+    let presentContact = addressBookArray.find(contact=>contact.firstName==newContact.firstName&&contact.lastName==newContact.lastName);
+    if(presentContact==undefined){
+        addressBookArray.push(newContact);
+        console.log("Contact added");
+    }
+    else 
+        console.log("Contact not added, already present: "+newContact.firstName+" "+newContact.lastName);
+}
+
+//Trying to add duplicate contact:
+addContact(new Contact("Mark","Zuckerberg","Street 191","NewYork","New York","732106","11 6182755450","mark@email.com"));
+console.log(addressBookArray.toString());
